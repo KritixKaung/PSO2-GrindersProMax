@@ -2,6 +2,7 @@
 This script is created for 144fps+ and around 100ping to server, if your performance has a huge difference from this the script might not perform as intended for you. If so try increasing sleep timers in 50ms increments.
 
 #How To use:
+
 ##Buying Process
 Walk to excube npc, position yourself where interaction is targeted, start buying process
 Imporant Note: you must set your inventory to material tab and have no items prior to starting this script. 
