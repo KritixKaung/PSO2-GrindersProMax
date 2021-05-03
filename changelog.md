@@ -2,6 +2,7 @@
 * Excube limit mode is added
 * Fixed calculation mistake in code which was counting grinder bought per loop as 999 when in reality you only buy 990 grinder each time in the game
 * Added excube used information to various status texts
+* V3.1 update is just for hotfix of radio buttons bug that I found out like 30mins after releasing v3 on GitHub so v3 is now deleted and released again as v3.1 with that fix.
 
 
 **What's new in V2**
