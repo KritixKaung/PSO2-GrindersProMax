@@ -12,7 +12,7 @@ It is best to bring this program to foreground with F1 to perform tasks while yo
 This script is created for 144fps+ and around 100ping to server, if your performance has a huge difference from this the script might not perform as intended for you. If so try increasing sleep timers in 50ms increments.
 
 ## How To use:
-
+Have autohotkey installed and run this script as admin while pso2 is running
 ### Buying Process
 Walk to excube npc, position yourself where interaction is targeted, start buying process. **The script will run for maximum loops assuming you have over 2100 excubes and 0 grinders in your material storage if you don't set excube limit or meseta target.**
 #### Imporant Note: you must set your inventory to material tab and have no items in there prior to starting this script. 
