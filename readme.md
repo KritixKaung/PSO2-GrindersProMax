@@ -1,6 +1,8 @@
 # Grinder Buying/Selling automation tool using autohotkey script for PSO2
 
-**What's new in V3**
+**What's new in V3.2**
+* Fixed target window name for this script to work after NGS update
+* Added 2 variables to set as timers (so that you can just edit those 2 instead of manually editing every timings) which would change all the timing related script settings. SleepTimingPC to adjust with your PC fps and lag and SleepTimingServer to adjust with your ping to the server.
 * Excube limit mode is added
 * Fixed calculation mistake in code which was counting grinder bought per loop as 999 when in reality you only buy 990 grinder each time in the game
 * Added excube used information to various status texts
