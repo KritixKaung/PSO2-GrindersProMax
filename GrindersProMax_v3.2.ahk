@@ -1,4 +1,4 @@
-﻿/*
+/*
 !Important note!
 It is best to bring this program to foreground with F1 to perform tasks while you're in the game instead of alt tabbing because alt tabbing might mess up with selections in the game. And it is important that you don't input anything into the game while the script is running.
 
@@ -17,6 +17,11 @@ You can also see the amount of grinders you have bought and meseta amount of it 
 Go to any NPC where you can sell items > Sell Items from Storage > Material Storage> Input Grinder in search and have grinders as your selection and start selling process
 
 */
+SleepTimingPC := 300
+SleepTimingServer := 1000
+
+
+
 #maxThreadsPerHotkey, 2
 GrinderMaxBuyAmount := 64
 GrinderSellAmount := 0
@@ -29,7 +34,7 @@ toogle1 := false
 
 
 
-WinGet, programid, List, Phantasy Star Online 2
+WinGet, programid, List, PHANTASY STAR ONLINE 2 NEW GENESIS
 Gui, Main:add, Text,r5 x15 y5 w225 Center vStatus,Idle.... `n Press F1 to insta-focus this program `n Press F4 to force close this program. `n Press F2 to see instuctions and script. `n Press F6 to reload program.
 Gui, Main:Add, Radio, vLimitRadioGroup1 gExcubeLimit, Excube Limit (max 2100) -
 Gui, Main:Add, Radio, vLimitRadioGroup2 gMesetaLimit, Meseta Target (in millions) -
@@ -48,7 +53,7 @@ Gui, Main:add, button, x10 y180 w110 h25 vStartSellingManuallyBtn gStartSellingM
 Gui, Main:add, button, x130 y180 w110 h25 vStopManualSellBtn gStopManualSell, Stop Manual Selling
 Gui, Main:Default
 Gui, -sysmenu
-gui, Main:show,,Grinders Pro Max v3
+gui, Main:show,,Grinders Pro Max v3.2
 GuiControl,Disable,SellBtn
 GuiControl,Disable,StopManualSellBtn
 GuiControl,Disable,StopSellingBtn
@@ -106,41 +111,41 @@ toggle := true
 	While toggle = true
 		if (GrinderMaxBuyAmount > 0){
 			ControlSend,, {e}, ahk_id %programid1%;Open NPC
-			Sleep, 1000
+			Sleep, SleepTimingServer
 			ControlSend,, {Enter}, ahk_id %programid1% ;Open Shop (Server Action)
-			Sleep, 750
+			Sleep, SleepTimingServer
 			ControlSend,, {Left}, ahk_id %programid1% ;Max Buy
-			Sleep, 300
+			Sleep, SleepTimingPC
 			ControlSend,, {Enter}, ahk_id %programid1% ;Purchase
-			Sleep, 300
+			Sleep, SleepTimingPC
 			ControlSend,, {Enter}, ahk_id %programid1% ;Confirm Purchase (Server Action)
-			Sleep, 600
+			Sleep, SleepTimingServer
 			ControlSend,, {Enter}, ahk_id %programid1% ;Close Purchase Complete
-			Sleep, 300
+			Sleep, SleepTimingPC
 			ControlSend,, {Esc}, ahk_id %programid1% ;Close Shop
-			Sleep, 300
+			Sleep, SleepTimingPC
 			ControlSend,, {Esc}, ahk_id %programid1% ;Close NPC	
-			Sleep, 300
+			Sleep, SleepTimingPC
 			ControlSend,, {i}, ahk_id %programid1% ;Open Inventory
-			Sleep, 450
+			Sleep, SleepTimingServer
 			ControlSend,, {Shift}{Enter}, ahk_id %programid1% ;Select all of first item stack
-			Sleep, 300
+			Sleep, SleepTimingPC
 			ControlSend,, {Enter}, ahk_id %programid1% ;Open item menu
-			Sleep, 300
+			Sleep, SleepTimingPC
 			ControlSend,, {Down}, ahk_id %programid1% ;Storage selection start
-			Sleep, 300
+			Sleep, SleepTimingPC
 			ControlSend,, {Down}, ahk_id %programid1%
-			Sleep, 300
+			Sleep, SleepTimingPC
 			ControlSend,, {Down}, ahk_id %programid1%
-			Sleep, 300
+			Sleep, SleepTimingPC
 			ControlSend,, {Down}, ahk_id %programid1%
-			Sleep, 300
+			Sleep, SleepTimingPC
 			ControlSend,, {Down}, ahk_id %programid1%
-			Sleep, 300
+			Sleep, SleepTimingPC
 			ControlSend,, {Enter}, ahk_id %programid1% ;Deposit
-			Sleep, 450
+			Sleep, SleepTimingServer
 			ControlSend,, {Esc}, ahk_id %programid1% ;Close menu for re-run
-			Sleep, 300
+			Sleep, SleepTimingPC
 			--GrinderMaxBuyAmount
 			++GrinderSellAmount
 			UpdateStatus("Buying " . RegExReplace(GrinderMaxBuyAmount*990, "(\G|[^\d.])\d{1,3}(?=(\d{3})+(\D|$))", "$0,")   . " More Grinders... `n" . RegExReplace(GrinderSellAmount*990, "(\G|[^\d.])\d{1,3}(?=(\d{3})+(\D|$))", "$0,") . " grinders bought `n" . RegExReplace(GrinderSellAmount*990*400, "(\G|[^\d.])\d{1,3}(?=(\d{3})+(\D|$))", "$0,") . " meseta worth `n" . RegExReplace(GrinderSellAmount*33, "(\G|[^\d.])\d{1,3}(?=(\d{3})+(\D|$))", "$0,") . " excubes used"  )
@@ -184,13 +189,13 @@ GuiControl,Enable,StopSellingBtn
 			else
 			{
 			ControlSend,, {Left}, ahk_id %programid1% 
-			Sleep, 300
+			Sleep, SleepTimingPC
 			ControlSend,, {Enter}, ahk_id %programid1%
-			Sleep, 300
+			Sleep, SleepTimingPC
 			ControlSend,, {Enter}, ahk_id %programid1%
-			Sleep, 650	
+			Sleep, SleepTimingServer	
 			ControlSend,, {Enter}, ahk_id %programid1% 
-			Sleep, 300	
+			Sleep, SleepTimingPC	
 			--GrinderSellAmount
 			++SoldGrinderAmount
 			UpdateStatus("Selling " . RegExReplace(GrinderSellAmount*990, "(\G|[^\d.])\d{1,3}(?=(\d{3})+(\D|$))", "$0,") . " More Grinders...")
@@ -251,13 +256,13 @@ GuiControl,Disable,BreakBtn
 GuiControl,Enable,StopManualSellBtn
 	While toggle = true{
 	ControlSend,, {Left}, ahk_id %programid1% 
-	Sleep, 300
+	Sleep, SleepTimingPC
 	ControlSend,, {Enter}, ahk_id %programid1%
-	Sleep, 300
+	Sleep, SleepTimingPC
 	ControlSend,, {Enter}, ahk_id %programid1%
-	Sleep, 650	
+	Sleep, SleepTimingServer	
 	ControlSend,, {Enter}, ahk_id %programid1% 
-	Sleep, 300	
+	Sleep, SleepTimingPC	
 	}
 	
 StopManualSell: ;Button Action
@@ -277,7 +282,7 @@ UpdateStatus(status)
 }
 
 #WinActivateForce
-F1::WinActivate, Grinders Pro Max v3
+F1::WinActivate, Grinders Pro Max v3.2
 return
 
 F2::Run https://github.com/KritixKaung/PSO2-GrindersProMax/blob/master/readme.md
